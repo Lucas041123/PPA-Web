@@ -1,59 +1,98 @@
-# PlataformaAdminWeb
+# Plataforma Profissional Anônima - Ecossistema Completo
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.1.
+## Visão Geral do Projeto
 
-## Development server
+A Plataforma Profissional Anônima é uma solução full-stack projetada para oferecer um ambiente digital seguro, acessível e confidencial. O seu propósito é permitir que profissionais possam interagir, buscar orientação, construir conexões e compartilhar experiências sem a exposição direta das suas identidades. A proposta atende diretamente a valores da Sociedade 5.0, promovendo inclusão digital, autonomia e bem-estar profissional.
 
-To start a local development server, run:
+Este ecossistema é composto por um back-end robusto, um painel administrativo web e uma aplicação mobile.
+
+## Arquitetura da Solução
+
+A plataforma é construída sobre uma arquitetura de serviços moderna e desacoplada:
+
+1.  **API REST (Back-end):** Um serviço construído com **Java e Spring Boot**, responsável por toda a lógica de negócio, persistência de dados e segurança.
+2.  **Painel Administrativo (Front-end Web):** Uma aplicação Single-Page Application (SPA) desenvolvida com **Angular** para a gestão e moderação da plataforma.
+3.  **Aplicação Mobile (Front-end Mobile):** Uma aplicação a ser desenvolvida em **React Native**, consumindo a mesma API REST.
+
+## Tecnologias Utilizadas
+
+| Camada | Tecnologia | Propósito |
+| :--- | :--- | :--- |
+| **Back-end** | Java 17+ | Linguagem principal |
+| | Spring Boot 3.x | Framework para a construção da API |
+| | Spring Data JPA / Hibernate | Persistência de dados |
+| | H2 Database | Base de dados em memória para desenvolvimento |
+| | Spring Security | Segurança e criptografia de senhas |
+| | Maven | Gestão de dependências e build |
+| | Lombok | Redução de código boilerplate |
+| | Springdoc OpenAPI | Documentação automática da API (Swagger) |
+| **Front-end Web** | TypeScript | Linguagem principal |
+| | Angular 16+ | Framework para a construção do painel |
+| | Angular CLI | Linha de comandos para gestão do projeto |
+| | RxJS | Programação reativa |
+| | SCSS | Pré-processador de CSS |
+
+## Guia de Instalação e Execução
+
+Siga os passos abaixo para configurar e executar o ambiente de desenvolvimento completo.
+
+### Pré-requisitos
+
+Certifique-se de que tem as seguintes ferramentas instaladas:
+* **Java 17+** (JDK)
+* **Apache Maven**
+* **Node.js e npm**
+* **Angular CLI** (`npm install -g @angular/cli`)
+
+### 1. Executar o Back-end (API REST)
+
+A API precisa de estar em execução para que o painel administrativo possa funcionar.
 
 ```bash
+# 1. Clone o repositório da API (se ainda não o fez)
+git clone [https://github.com/Lucas041123/plataforma-profissional-api.git](https://github.com/Lucas041123/plataforma-profissional-api.git)
+
+# 2. Entre na pasta do projeto
+cd plataforma-profissional-api
+
+# 3. Compile o projeto e descarregue as dependências
+mvn clean install
+
+# 4. Execute a aplicação
+# Pode executar o ficheiro ApiApplication.java diretamente da sua IDE,
+# ou usar o Maven:
+mvn spring-boot:run
+```
+Após estes passos, a API estará a correr em `http://localhost:8080`.
+
+### 2. Executar o Front-end (Painel Administrativo Angular)
+
+```bash
+# 1. Numa nova janela de terminal, clone o repositório do front-end
+git clone [https://github.com/Lucas041123/plataforma-admin-web.git](https://github.com/Lucas041123/plataforma-admin-web.git)
+
+# 2. Entre na pasta do projeto
+cd plataforma-admin-web
+
+# 3. Instale as dependências do Node.js
+npm install
+
+# 4. Inicie o servidor de desenvolvimento
 ng serve
 ```
+Após estes passos, a aplicação Angular estará acessível em `http://localhost:4200`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Documentação e Ferramentas de Desenvolvimento
 
-## Code scaffolding
+Com o back-end em execução, as seguintes ferramentas de desenvolvimento estão disponíveis:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* **Swagger UI (Documentação da API):**
+    * **URL:** [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+    * Use esta interface para visualizar e testar todos os endpoints da API de forma interativa.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+* **Consola da Base de Dados H2:**
+    * **URL:** [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+    * **JDBC URL:** `jdbc:h2:mem:plataformadb`
+    * **User Name:** `sa`
+    * **Password:** `password`
+    * Use esta consola para inspecionar os dados diretamente na base de dados em memória.
