@@ -49,8 +49,8 @@ Certifique-se de que tem as seguintes ferramentas instaladas:
 A API precisa de estar em execução para que o painel administrativo possa funcionar.
 
 ```bash
-# 1. Clone o repositório da API (se ainda não o fez)
-git clone [https://github.com/Lucas041123/plataforma-profissional-api.git](https://github.com/Lucas041123/plataforma-profissional-api.git)
+# 1. Clone o repositório da API 
+git clone [https://github.com/Lucas041123/API_PPA.git](https://github.com/Lucas041123/API_PPA.git)
 
 # 2. Entre na pasta do projeto
 cd plataforma-profissional-api
@@ -69,7 +69,7 @@ Após estes passos, a API estará a correr em `http://localhost:8080`.
 
 ```bash
 # 1. Numa nova janela de terminal, clone o repositório do front-end
-git clone [https://github.com/Lucas041123/plataforma-admin-web.git](https://github.com/Lucas041123/plataforma-admin-web.git)
+git clone [https://github.com/Lucas041123/PPA-Web.git](https://github.com/Lucas041123/PPA-Web.git)
 
 # 2. Entre na pasta do projeto
 cd plataforma-admin-web
