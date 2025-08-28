@@ -1,0 +1,29 @@
+<div class="header-container">
+  <h2>Lista de Vagas</h2>
+  <a routerLink="/vagas/novo" class="btn-novo">Nova Vaga</a>
+</div>
+
+<div *ngIf="vagas.length > 0; else noVagas">
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome da Vaga</th>
+      <th>Localização</th>
+      <th>Ativa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let vaga of vagas">
+      <td>{{ vaga.id }}</td>
+      <td>{{ vaga.nome }}</td>
+      <td>{{ vaga.localizacao }}</td>
+      <td>{{ vaga.ativa ? 'Sim' : 'Não' }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noVagas>
+  <p>Nenhuma vaga encontrada.</p>
+</ng-template>
